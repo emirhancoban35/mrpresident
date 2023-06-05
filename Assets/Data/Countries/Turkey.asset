@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84333c37414c48e18ce98507b14726da, type: 3}
+  m_Name: Turkey
+  m_EditorClassIdentifier: 
+  countryName: 0
+  governmentType: 0
+  presidentName: "Recep Tayyip Erdo\u011Fan"
+  countryFlag: {fileID: 21300000, guid: 615a7a9fa878b4e9784b04ba5ed3e759, type: 3}
+  armyPower: 75
+  economy: 25
+  peopleSupport: 43
+  welfareLevel: 34
+  alliances: 02000000
+  allies: 02000000
+  enemies: 
