@@ -13,11 +13,6 @@ public class NewsCreator : MonoBehaviour
     private GameObject _panel;
     public List<GameObject> newsPrefabs = new List<GameObject>();
 
-    public float left = 1.5259e-05f;
-    public float top = 6398f;
-    public float right = -1.5259e-05f;
-    public float bottom = 182.6405f;
-
     private void Start()
     {
         _panel = GameObject.FindWithTag("Panel");
@@ -25,6 +20,7 @@ public class NewsCreator : MonoBehaviour
 
     public void CreateNews()
     {
+
         int randomNewsNumber = Random.Range(0, newsList.Count);
         News createdNews = newsList[randomNewsNumber];
         
@@ -44,7 +40,5 @@ public class NewsCreator : MonoBehaviour
         textComponent.text = createdNews.newsText;  
         
         newsList.RemoveAt(randomNewsNumber);
-        
-        NewsPanelController.Instance.NewNews();
     }
 }
