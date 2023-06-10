@@ -13,9 +13,13 @@ public class NewsPanelController : MonoSingleton<NewsPanelController>
 
     public void NewNews()
     {
-        Vector3 currentPosition = _newsPanel.localPosition;
-        currentPosition.y -= 10; 
-        _newsPanel.localPosition= currentPosition; 
-                                                
+        var currentPosition = _newsPanel.localPosition;
+        var currentScale = _newsPanel.localScale;
+        var currentLocation = _newsPanel.localRotation;
+        currentPosition.y += 5f;
+        currentPosition.y += 10f;
+        currentLocation.y -= 5f;
+        _newsPanel.localPosition= currentPosition;
+        _newsPanel.localScale = currentScale;
     }
 }

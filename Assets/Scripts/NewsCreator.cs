@@ -12,11 +12,13 @@ public class NewsCreator : MonoBehaviour
     private RectTransform _createdTransform;
     private GameObject _panel;
     public List<GameObject> newsPrefabs = new List<GameObject>();
+    public NewsPanelController newsPanelController;
 
     private void Start()
     {
-        _panel = GameObject.FindWithTag("Panel");
+        _panel = GameObject.FindWithTag("Panel"); 
     }
+    
 
     public void CreateNews()
     {
@@ -40,5 +42,7 @@ public class NewsCreator : MonoBehaviour
         textComponent.text = createdNews.newsText;  
         
         newsList.RemoveAt(randomNewsNumber);
+        
+        newsPanelController.NewNews();
     }
 }
