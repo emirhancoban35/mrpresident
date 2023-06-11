@@ -25,7 +25,13 @@ public class NewsCreator : MonoBehaviour
         foreach (var news in newsPrefabs)   
         {
             var newsTransform = news.GetComponent<RectTransform>();
-            
+
+            var currentPosition = newsTransform.anchoredPosition;
+
+            currentPosition.y += 200;
+
+            newsTransform.anchoredPosition = currentPosition;
+
         }
         newsPrefabs.Add(instantiatedPrefab);
         
@@ -37,6 +43,6 @@ public class NewsCreator : MonoBehaviour
         
         newsList.RemoveAt(randomNewsNumber);
         
-        NewsPanelController.Instance.SetSizePanel();
+        // NewsPanelController.Instance.SetSizePanel();
     }
 }
