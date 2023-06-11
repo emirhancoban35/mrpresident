@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: News 3
   m_EditorClassIdentifier: 
   newsTyoe: 2
+  newsOfWhichCountries: 00000000
   newsText: "\xC7ayc\u0131 H\xFCseyin evinde canl\u0131 bulundu"

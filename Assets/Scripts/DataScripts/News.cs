@@ -8,5 +8,7 @@ public class News : ScriptableObject
 {
     public NewsType newsTyoe;
 
+    public List<Countries> newsOfWhichCountries = new List<Countries>();
+
     public string newsText;
 }

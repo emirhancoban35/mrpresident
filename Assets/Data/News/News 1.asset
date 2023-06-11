@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: News 1
   m_EditorClassIdentifier: 
   newsTyoe: 1
+  newsOfWhichCountries: 00000000
   newsText: "Yeni nesil u\xE7ak \xFCretildi"

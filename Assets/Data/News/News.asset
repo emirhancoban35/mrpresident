@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: News
   m_EditorClassIdentifier: 
   newsTyoe: 0
+  newsOfWhichCountries: 00000000
   newsText: "Enflasyon y\xFCzde 50 oldu"

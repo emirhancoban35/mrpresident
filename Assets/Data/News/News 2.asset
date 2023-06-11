@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: News 2
   m_EditorClassIdentifier: 
   newsTyoe: 2
+  newsOfWhichCountries: 00000000
   newsText: "Cem Y\u0131lmaz hayat\u0131n\u0131 kaybetti"
