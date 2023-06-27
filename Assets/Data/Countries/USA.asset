@@ -20,6 +20,13 @@ MonoBehaviour:
   economy: 95
   peopleSupport: 53
   welfareLevel: 91
-  alliances: 02000000
-  allies: 0000000001000000
-  enemies: 03000000
+  alliances: 
+  allies: 
+  enemies: 
+  relationships:
+  - country: 0
+    relationship: 50
+  - country: 2
+    relationship: 80
+  - country: 4
+    relationship: 90

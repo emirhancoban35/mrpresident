@@ -1015,6 +1015,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCountry: {fileID: 0}
+  otherCountries:
+  - {fileID: 11400000, guid: 6cac276729e834a0e8166a1d543fccaa, type: 2}
+  - {fileID: 11400000, guid: 596ab821cf2614034ae7a9fec08b53b3, type: 2}
+  - {fileID: 11400000, guid: d3c63766fdb024757bf75a1e2a10a321, type: 2}
 --- !u!4 &2021794543
 Transform:
   m_ObjectHideFlags: 0

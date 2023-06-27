@@ -23,3 +23,8 @@ MonoBehaviour:
   alliances: 02000000
   allies: 02000000
   enemies: 
+  relationships:
+  - country: 2
+    relationship: 100
+  - country: 3
+    relationship: 20

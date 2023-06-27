@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Panel
+  - NewsPanel
   layers:
   - Default
   - TransparentFX

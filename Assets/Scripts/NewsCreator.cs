@@ -9,13 +9,13 @@ public class NewsCreator : MonoBehaviour
     public List<GameObject> newsPrefabs = new List<GameObject>();
 
     [SerializeField] private GameObject newsPrefab;
-    [CanBeNull] private News newsToBePublished;
+    [CanBeNull] private News _newsToBePublished;
 
     public void SetNewsToBePublished(News news)
     {
-        newsToBePublished = news;
+        _newsToBePublished = news;
     }
-
+    
     public void AddNews(News news)
     {
         newsList.Add(news);
@@ -28,10 +28,10 @@ public class NewsCreator : MonoBehaviour
 
     public void CreateNews()
     {
-        if (newsToBePublished != null)
+        if (_newsToBePublished != null)
         {
-            PublishNews(newsToBePublished);
-            newsToBePublished = null;
+            PublishNews(_newsToBePublished);
+            _newsToBePublished = null;
         }
         else
         {

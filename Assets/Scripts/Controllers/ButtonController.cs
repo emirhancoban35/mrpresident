@@ -22,8 +22,8 @@ public class ButtonController : MonoBehaviour
     {
         _country = country;
         image.sprite = country.countryFlag;
-    } 
-
+    }
+    
     public void OnClick()
     {
         SceneManager.LoadScene(sceneBuildIndex: +1, LoadSceneMode.Single);
