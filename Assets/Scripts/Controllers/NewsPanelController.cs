@@ -1,24 +1,18 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
 using Zenject;
 
-public class NewsPanelController : MonoSingleton<NewsPanelController>,IPanelController
+public class NewsPanelController : MonoSingleton<NewsPanelController>, IPanelController
 {
-    [Inject(Id = "NewsPanel")]
     private RectTransform _newsPanel;
-
-    [Inject(Id = "Panel")]
     private RectTransform _panel;
-
     private Transform _newsPanelTransform;
-    
-    private void Start()
+
+    [Inject]
+    public void Initialize([Inject(Id = "NewsPanel")] RectTransform newsPanel, [Inject(Id = "Panel")] RectTransform panel)
     {
-        _newsPanel = GameObject.Find("NewsPanel").GetComponent<RectTransform>();
-        _panel = GameObject.Find("Panel").GetComponent<RectTransform>();
+        _newsPanel = newsPanel;
+        _panel = panel;
         _newsPanelTransform = _newsPanel.transform;
     }
 
@@ -26,7 +20,7 @@ public class NewsPanelController : MonoSingleton<NewsPanelController>,IPanelCont
     {
         return _newsPanelTransform;
     }
-    
+
     public Transform GetNewsPanelLocation()
     {
         return _panel.transform;
@@ -42,4 +36,3 @@ public class NewsPanelController : MonoSingleton<NewsPanelController>,IPanelCont
         _newsPanel.localScale = currentScale;
     }
 }
-

@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NewsCreator : MonoBehaviour
+public class NewsCreator : MonoSingleton<NewsCreator>
 {
     public List<News> newsList = new List<News>();
     public List<GameObject> newsPrefabs = new List<GameObject>();
