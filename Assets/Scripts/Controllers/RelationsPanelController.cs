@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
@@ -12,6 +11,7 @@ public class RelationsPanelController : MonoBehaviour
     [Inject(Id = "ReloatinshipPanel")]
     private RectTransform _relationsPanel;
 
+    private float _panelSpacing = 10f; // İlişki panelleri arasındaki boşluk miktarı
 
     private void Start()
     {
@@ -28,18 +28,29 @@ public class RelationsPanelController : MonoBehaviour
         
     } 
 
-    public void CreateNewPanel(int relationshipLevel,Sprite countryFlag,string countryName)
+    public void CreateNewPanel(int relationshipLevel, Sprite countryFlag, string countryName)
     {
-        // Debug.Log(" ");
         _relationsPanel.gameObject.SetActive(true);
+
         GameObject instantiatedPrefab = Instantiate(relationsPrefab, GetPanelLocation());
         instantiatedPrefab.transform.SetParent(GetPanelLocation(), false);
         
-        Text textComponent = relationsPrefab.GetComponentInChildren<Text>();
-        Image image = relationsPrefab.GetComponentInChildren<Image>();
-        Slider slider = relationsPrefab.GetComponentInChildren<Slider>();
+        Text textComponent = instantiatedPrefab.GetComponentInChildren<Text>();
+        Image image = instantiatedPrefab.GetComponentInChildren<Image>();
+        Slider slider = instantiatedPrefab.GetComponentInChildren<Slider>();
         image.sprite = countryFlag;
         textComponent.text = countryName;
         slider.value = relationshipLevel;
+
+        // İlişki panellerini alt alta hizalamak için panelin pozisyonunu güncelle
+        Vector2 panelPosition = _relationsPanel.anchoredPosition;
+        panelPosition.y -= (_panelSpacing + GetPanelHeight(instantiatedPrefab));
+        _relationsPanel.anchoredPosition = panelPosition;
+    }
+
+    private float GetPanelHeight(GameObject panelObject)
+    {
+        RectTransform panelTransform = panelObject.GetComponent<RectTransform>();
+        return panelTransform.rect.height;
     }
 }

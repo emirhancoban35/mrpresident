@@ -1071,10 +1071,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newsList:
-  - {fileID: 11400000, guid: a977b32c09e0a4e29b61bb5ff1df1d07, type: 2}
-  - {fileID: 11400000, guid: 29ebcfb2b8ab542868b68a9a6adeda36, type: 2}
   - {fileID: 11400000, guid: 6bf589de922f64c25b7d688d21463bda, type: 2}
+  - {fileID: 11400000, guid: 29ebcfb2b8ab542868b68a9a6adeda36, type: 2}
   - {fileID: 11400000, guid: 50f12124131134a129dbcf9c15a6ad0d, type: 2}
+  - {fileID: 11400000, guid: 61d2b888da2804de4bd3b6d18793c8c9, type: 2}
+  - {fileID: 11400000, guid: f0782ca6e4c684d44979abee1f0d71d1, type: 2}
+  - {fileID: 11400000, guid: 8f69c8bb0fc32476995537939bff8cc0, type: 2}
+  - {fileID: 11400000, guid: d58535ea2acba49ef9a944b6a389876c, type: 2}
+  - {fileID: 11400000, guid: 1b57762161f274f5187ac8ad1e649c77, type: 2}
+  - {fileID: 11400000, guid: a977b32c09e0a4e29b61bb5ff1df1d07, type: 2}
+  - {fileID: 11400000, guid: e344dddb472af4097ac858dfa61a0153, type: 2}
+  - {fileID: 11400000, guid: cfc75dded0a9e41ac8b8b8e70375e168, type: 2}
+  - {fileID: 11400000, guid: d58535ea2acba49ef9a944b6a389876c, type: 2}
+  - {fileID: 11400000, guid: a977b32c09e0a4e29b61bb5ff1df1d07, type: 2}
   newsPrefabs: []
   newsPrefab: {fileID: 4488804064420053609, guid: 3ee48e3be3e5044e493e0550acc6457b, type: 3}
 --- !u!4 &318352234
@@ -2132,19 +2141,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 885316270}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 318352233}
-        m_TargetAssemblyTypeName: NewsCreator, Assembly-CSharp
-        m_MethodName: CreateNews
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &885316270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3589,10 +3586,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa128e9c46f64d6680ef7ff66f346b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventList: []
+  eventList:
+  - {fileID: 11400000, guid: 4285953c9bfaa42acb606128e568734c, type: 2}
+  - {fileID: 11400000, guid: 1a333e0965c7b43a7823e844b63a2dc2, type: 2}
   eventContainer: {fileID: 717036543}
-  eventPrefab: {fileID: 0}
-  optionPrefab: {fileID: 0}
+  eventPrefab: {fileID: 6772222051392533602, guid: 46b491953a7f04f55ab2d1c03edc8964, type: 3}
+  optionPrefab: {fileID: 5588155351805487658, guid: 362856c3f13804eb7904a391eaab3e8e, type: 3}
+  forwardButton: {fileID: 885316269}
 --- !u!4 &2133109287
 Transform:
   m_ObjectHideFlags: 0

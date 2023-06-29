@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9fdcc3a5fa3fc42a6bf4201e953dc04b, type: 3}
-  m_Name: News
+  m_Name: News 6
   m_EditorClassIdentifier: 
   newsTyoe: 0
   newsOfWhichCountries: 00000000
-  newsText: "Yerli araba faalliyete ge\xE7ti"
+  newsText: "Yeni Malatya Spor S\xFCper lig \u015Fampiyonu oldu"

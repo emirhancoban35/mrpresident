@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fba1fbc8c7f7c454f9b087ad8778c804, type: 3}
-  m_Name: EventData
+  m_Name: EventData 2
   m_EditorClassIdentifier: 
-  eventText: Suri Bombom
+  eventText: "Asgari ucrete zam yap\u0131ls\u0131nmj"
   eventsOptions:
-  - optionText: EVET
-    effectsList:
-    - affected: 0
-      amountOfEffect: 0
+  - optionText: yok
+    effectsList: []
     triggeredNews: {fileID: 11400000, guid: edfd3c51aaec14975bb409021ab7311c, type: 2}
-  - optionText: HAYIR
-    effectsList:
-    - affected: 0
-      amountOfEffect: 0
+  - optionText: evet
+    effectsList: []
+    triggeredNews: {fileID: 0}
+  - optionText: "az yap\u0131ls\u0131n"
+    effectsList: []
     triggeredNews: {fileID: 11400000, guid: edfd3c51aaec14975bb409021ab7311c, type: 2}
   eligibleCountries: 00000000

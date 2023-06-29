@@ -35,6 +35,12 @@ public class NewsCreator : MonoSingleton<NewsCreator>
         }
         else
         {
+            if (newsList.Count == 0)
+            {
+                Debug.Log("Haber kalmadı.");
+                return;
+            }
+
             int randomNewsNumber = Random.Range(0, newsList.Count);
             News createdNews = newsList[randomNewsNumber];
 
@@ -47,6 +53,7 @@ public class NewsCreator : MonoSingleton<NewsCreator>
             }
         }
     }
+
 
     private void PublishNews(News selectedNews)
     {
