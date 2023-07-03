@@ -1,4 +1,5 @@
 public enum Alliances
 {
-    None,EuropaUnion,NATO,
+    EuropaUnion,
+    NATO,
 }

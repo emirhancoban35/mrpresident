@@ -2,11 +2,11 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 
 [System.Serializable]
-public class EventOptions
+public struct EventOptions
 {
     public string optionText;
 
-    public List<EventEffects> effectsList = new List<EventEffects>();
+    public List<EventEffects> effectsList;
     
     [CanBeNull] public News triggeredNews;
 

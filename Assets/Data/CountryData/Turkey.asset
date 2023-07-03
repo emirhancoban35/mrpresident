@@ -17,7 +17,7 @@ MonoBehaviour:
   presidentName: "Recep Tayyip Erdo\u011Fan"
   countryFlag: {fileID: 21300000, guid: 615a7a9fa878b4e9784b04ba5ed3e759, type: 3}
   armyPower: 75
-  economy: 25
+  economyData: {fileID: 11400000, guid: 9146ccbe626734703aa1681f1be02ee6, type: 2}
   peopleSupport: 43
   welfareLevel: 34
   alliances: 02000000

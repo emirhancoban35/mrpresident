@@ -1,4 +1,7 @@
 public enum GovernmentStyles
 {
-    Democracy,Monarchy,Comminisim,Fasisim,
+    Democracy,
+    Monarchy,
+    Comminisim,
+    Fasisim,
 }

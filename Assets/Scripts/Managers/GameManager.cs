@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour ,IGameManager
    public CountryData myCountry;
 
    public List<CountryData> otherCountries;
-
+   
    #region Instance
    private static GameManager _instance;
    public static GameManager Instance

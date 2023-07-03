@@ -4,5 +4,7 @@ using UnityEngine;
 
 public enum NewsType
 {
-    EconomyNews,MilitaryNews,DailyNews,
+    EconomyNews,
+    MilitaryNews,
+    DailyNews,
 }

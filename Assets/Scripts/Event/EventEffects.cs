@@ -1,5 +1,5 @@
 [System.Serializable]
-public class EventEffects
+public struct EventEffects
 {
     public OptionEffect affected;
 

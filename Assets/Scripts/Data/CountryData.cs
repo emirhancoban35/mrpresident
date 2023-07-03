@@ -12,10 +12,11 @@ public class CountryData : ScriptableObject
 
     public Sprite countryFlag;
     
-    public float armyPower;
+    public float armyPower; 
 
-    public float economy;
-
+    public EconomyData economyData;
+    public float economy { get { return economyData.EconomyLevel; } }
+    
     public float peopleSupport;
     
     public float welfareLevel;

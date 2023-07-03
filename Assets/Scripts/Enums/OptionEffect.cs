@@ -1,4 +1,7 @@
 public enum OptionEffect 
 {
-    Military,Economy,Welfare,Vote
+    Military,
+    Economy,
+    Welfare,
+    Vote
 }

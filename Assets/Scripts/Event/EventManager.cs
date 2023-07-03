@@ -109,7 +109,7 @@ public class EventManager : MonoBehaviour
                 GameManager.Instance.myCountry.armyPower += effect.amountOfEffect;
                 break;
             case OptionEffect.Economy:
-                GameManager.Instance.myCountry.economy += effect.amountOfEffect;
+                GameManager.Instance.myCountry.economyData.GeneralEconomy += effect.amountOfEffect;
                 break;
             case OptionEffect.Vote:
                 GameManager.Instance.myCountry.peopleSupport += effect.amountOfEffect;

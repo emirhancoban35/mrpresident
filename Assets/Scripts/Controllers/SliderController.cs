@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class SliderController : MonoBehaviour
+public class SliderController : MonoSingleton<SliderController>
 {
     private Slider _economySlider;
     private Slider _militarySlider;
