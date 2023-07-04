@@ -21,8 +21,6 @@ public class RelationsController : MonoBehaviour
             var relationshipLevel =country.GetRelationship(GameManager.Instance.myCountry.countryName);
             
             var countryName =country.name;
-
-            // Debug.Log(countryName +relationshipLevel);
             var countryFlag = country.countryFlag;
             
             _relationsPanelController.CreateNewPanel(relationshipLevel,countryFlag,countryName);

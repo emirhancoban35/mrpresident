@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 public class EconomyPanelController : MonoSingleton<EconomyPanelController>
 {
-    public BudgetPanel budgetPanelPrefab;
-    public EconomyDataPanel sliderPanelPrefab;
-    public Transform panelParent;
+    [SerializeField] private BudgetPanel budgetPanelPrefab;
+    [SerializeField] private EconomyDataPanel sliderPanelPrefab;
+    [SerializeField] private Transform panelParent;
 
     private BudgetPanel[] _budgetPanels;
     private EconomyDataPanel[] _sliderPanels;

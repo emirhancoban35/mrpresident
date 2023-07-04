@@ -62,8 +62,8 @@ public class EventManager : MonoBehaviour
         Text eventText = instantiatedPrefab.GetComponentInChildren<Text>();
         eventText.text = selectedEvent.eventText;
 
-        float yOffset = 0f; // Yükseklik için bir değişken tanımlıyoruz
-
+        float yOffset = 0f;
+        
         foreach (var option in selectedEvent.eventsOptions)
         {
             GameObject instantiatedOption = Instantiate(optionPrefab, instantiatedPrefab.transform);
@@ -74,8 +74,8 @@ public class EventManager : MonoBehaviour
             optionButton.onClick.AddListener(() => ButtonClick(option));
 
             RectTransform optionTransform = instantiatedOption.GetComponent<RectTransform>();
-            optionTransform.anchoredPosition = new Vector2(0f, -yOffset); // Yeni bir pozisyon belirliyoruz
-            yOffset += optionTransform.sizeDelta.y; // Yüksekliği güncelliyoruz
+            optionTransform.anchoredPosition = new Vector2(0f, -yOffset);
+            yOffset += optionTransform.sizeDelta.y; 
 
             instantiatedOption.transform.SetParent(instantiatedPrefab.transform, false);
         }

@@ -4,9 +4,9 @@ using System;
 
 public class EconomyDataPanel : MonoBehaviour
 {
-    public Text variableNameText;
-    public Slider variableValueSlider;
-    public Text variableValueText;
+    [SerializeField] private Text variableNameText;
+    [SerializeField] private Slider variableValueSlider;
+    [SerializeField] private Text variableValueText;
 
     private Action<float> onSliderValueChanged;
 

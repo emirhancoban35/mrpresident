@@ -4,10 +4,10 @@ using System;
 
 public class BudgetPanel : MonoBehaviour
 {
-    public Text panelNameText;
-    public Text budgetValueText;
-    public Button increaseButton;
-    public Button decreaseButton;
+    [SerializeField] private Text panelNameText;
+    [SerializeField] private Text budgetValueText;
+    [SerializeField] private Button increaseButton;
+    [SerializeField] private Button decreaseButton;
     public BudgetType budgetType;
 
     public Action<BudgetType> onIncreaseButtonClicked;
