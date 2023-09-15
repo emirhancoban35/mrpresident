@@ -112,6 +112,8 @@ namespace Zenject
             {
                 Initialize();
             }
+            
+            // DontDestroyOnLoad(gameObject);
         }
 
         public void Validate()

@@ -3,9 +3,9 @@ using Zenject;
 
 public class DefaultInstaller : MonoInstaller
 {
-    public GameManager gameManager;
+    [SerializeField] private CountryManager m_countryManager;
     public override void InstallBindings()
     {
-        Container.BindInstance(gameManager);
+        Container.BindInstance(m_countryManager).AsSingle().NonLazy();
     }
 }

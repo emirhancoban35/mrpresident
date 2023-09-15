@@ -12,6 +12,7 @@ public class BudgetPanel : MonoBehaviour
 
     public Action<BudgetType> onIncreaseButtonClicked;
     public Action<BudgetType> onDecreaseButtonClicked;
+    
     public void Initialize(BudgetType type)
     {
         budgetType = type;

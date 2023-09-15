@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Zenject;
 
-public class EconomyPanelController : MonoSingleton<EconomyPanelController>
+public class EconomyPanelController : MonoBehaviour
 {
     [SerializeField] private BudgetPanel budgetPanelPrefab;
     [SerializeField] private EconomyDataPanel sliderPanelPrefab;
@@ -9,6 +10,15 @@ public class EconomyPanelController : MonoSingleton<EconomyPanelController>
 
     private BudgetPanel[] _budgetPanels;
     private EconomyDataPanel[] _sliderPanels;
+    
+    private EconomyManager _economyManager;
+    
+    [Inject]
+    public void Setup(EconomyManager economyManager)
+    {
+        this._economyManager = economyManager;
+    }
+    
 
     public void CreateBudgetPanels(Dictionary<BudgetType, float> budgetValues)
     {
@@ -37,8 +47,8 @@ public class EconomyPanelController : MonoSingleton<EconomyPanelController>
             budgetPanel.Initialize(budgetType);
             budgetPanel.UpdateBudgetValue(budgetValues[budgetType]);
 
-            budgetPanel.onIncreaseButtonClicked += EconomyManager.Instance.IncreaseBudget;
-            budgetPanel.onDecreaseButtonClicked += EconomyManager.Instance.DecreaseBudget;
+            budgetPanel.onIncreaseButtonClicked += _economyManager.IncreaseBudget;
+            budgetPanel.onDecreaseButtonClicked += _economyManager.DecreaseBudget;
 
             _budgetPanels[index] = budgetPanel;
             index++;
@@ -98,6 +108,6 @@ public class EconomyPanelController : MonoSingleton<EconomyPanelController>
 
     private void OnSliderValueChanged(string variableName, float newValue)
     {
-        EconomyManager.Instance.UpdateVariable(variableName, newValue);
+        _economyManager.UpdateVariable(variableName, newValue);
     }
 }

@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Zenject;
 
-public class EconomyManager : MonoSingleton<EconomyManager>
+public class EconomyManager : MonoBehaviour
 {
     private Dictionary<BudgetType, float> budgetValues = new Dictionary<BudgetType, float>();
     private Dictionary<string, float> variableValues = new Dictionary<string, float>();
@@ -10,6 +11,15 @@ public class EconomyManager : MonoSingleton<EconomyManager>
     private const string EconomicPowerKey = "EconomicPower";
 
     private int economicPower;
+    
+    private CountryManager _countryManager;
+    
+    [Inject]
+    public void Setup(CountryManager countryManager)
+    {
+        this._countryManager = countryManager;
+        _countryManager.CountryManagerStateChanged();
+    }
 
     private void Start()
     {
@@ -30,7 +40,7 @@ public class EconomyManager : MonoSingleton<EconomyManager>
     
     private int CalculateAndSaveEconomicPower()
     {
-        float economyLevel = GameManager.Instance.myCountry.economy;
+        float economyLevel = _countryManager.myCountry.economy;
 
         int calculatedEconomicPower = Mathf.RoundToInt(economyLevel * 20f);
 
@@ -56,12 +66,12 @@ public class EconomyManager : MonoSingleton<EconomyManager>
     
     private void LoadVariableValues()
     {
-        variableValues["Income"] = GameManager.Instance.myCountry.economyData.Income;
-        variableValues["Expenses"] =  GameManager.Instance.myCountry.economyData.Expenses;
-        variableValues["Debt"] = GameManager.Instance.myCountry.economyData.Debt;
-        variableValues["TaxRate"] = GameManager.Instance.myCountry.economyData.TaxRate;
-        variableValues["UnemploymentRate"] = GameManager.Instance.myCountry.economyData.UnemploymentRate;
-        variableValues["PurchasingPower"] = GameManager.Instance.myCountry.economyData.PurchasingPower;
+        variableValues["Income"] = _countryManager.myCountry.economyData.Income;
+        variableValues["Expenses"] =  _countryManager.myCountry.economyData.Expenses;
+        variableValues["Debt"] = _countryManager.myCountry.economyData.Debt;
+        variableValues["TaxRate"] = _countryManager.myCountry.economyData.TaxRate;
+        variableValues["UnemploymentRate"] = _countryManager.myCountry.economyData.UnemploymentRate;
+        variableValues["PurchasingPower"] = _countryManager.myCountry.economyData.PurchasingPower;
     }
     
     public float GetVariableValue(string variableName)

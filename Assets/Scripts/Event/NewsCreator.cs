@@ -2,14 +2,25 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
+using Random = UnityEngine.Random;
 
-public class NewsCreator : MonoSingleton<NewsCreator>
+public class NewsCreator : MonoBehaviour
 {
     public List<News> newsList = new List<News>();
     public List<GameObject> newsPrefabs = new List<GameObject>();
 
     [SerializeField] private GameObject newsPrefab;
     [CanBeNull] private News _newsToBePublished;
+
+    [Inject] private CountryManager _countryManager;
+    
+    [Inject] private NewsPanelController _newsPanelController;
+
+    private void Setup(NewsPanelController newsPanelController)
+    {
+        this._newsPanelController = newsPanelController;
+    }
 
     public void SetNewsToBePublished(News news)
     {
@@ -44,7 +55,7 @@ public class NewsCreator : MonoSingleton<NewsCreator>
             int randomNewsNumber = Random.Range(0, newsList.Count);
             News createdNews = newsList[randomNewsNumber];
 
-            var contains = createdNews.newsOfWhichCountries.Contains(GameManager.Instance.myCountry.countryName);
+            var contains = createdNews.newsOfWhichCountries.Contains(_countryManager.myCountry.countryName);
 
             if (contains)
             {
@@ -54,10 +65,9 @@ public class NewsCreator : MonoSingleton<NewsCreator>
         }
     }
 
-
     private void PublishNews(News selectedNews)
     {
-        GameObject instantiatedPrefab = Instantiate(newsPrefab, NewsPanelController.Instance.GetPanelLocation());
+        GameObject instantiatedPrefab = Instantiate(newsPrefab, _newsPanelController.GetPanelLocation());
         newsPrefabs.Add(instantiatedPrefab);
 
         foreach (var news in newsPrefabs)
@@ -68,7 +78,7 @@ public class NewsCreator : MonoSingleton<NewsCreator>
             newsTransform.anchoredPosition = currentPosition;
         }
 
-        instantiatedPrefab.transform.SetParent(NewsPanelController.Instance.GetNewsPanelLocation(), false);
+        instantiatedPrefab.transform.SetParent(_newsPanelController.GetNewsPanelLocation(), false);
         Text textComponent = instantiatedPrefab.GetComponentInChildren<Text>();
         textComponent.text = selectedNews.newsText;
     }

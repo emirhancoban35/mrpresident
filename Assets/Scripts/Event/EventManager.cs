@@ -1,16 +1,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class EventManager : MonoBehaviour
 {
     public List<EventData> eventList = new List<EventData>();
     public GameObject eventContainer;
+    
     [SerializeField] private GameObject eventPrefab;
     [SerializeField] private GameObject optionPrefab;
     [SerializeField] private Button forwardButton;
 
     private int _buttonPressCount = 0;
+    
+    [Inject] private CountryManager _countryManager;
+    [Inject] private NewsCreator _newsCreator;
+    
+    // public void Setup(CountryManager countryManager , NewsCreator newsCreator)
+    // {
+    //     this._countryManager = countryManager;
+    //     this._newsCreator = newsCreator;
+    //     _countryManager.CountryManagerStateChanged();
+    // }
 
     private void Start()
     {
@@ -26,7 +38,7 @@ public class EventManager : MonoBehaviour
             SelectRandomEvent();
         }
 
-        NewsCreator.Instance.CreateNews();
+        _newsCreator.CreateNews();
     }
 
     private void SelectRandomEvent()
@@ -53,7 +65,7 @@ public class EventManager : MonoBehaviour
 
     private bool IsEventEligible(EventData selectedEvent)
     {
-        return selectedEvent.eligibleCountries.Contains(GameManager.Instance.myCountry.countryName);
+        return selectedEvent.eligibleCountries.Contains(_countryManager.myCountry.countryName);
     }
 
     private void CreateRandomEvent(EventData selectedEvent)
@@ -94,7 +106,7 @@ public class EventManager : MonoBehaviour
 
         if (option.triggeredNews != null)
         {
-            NewsCreator.Instance.SetNewsToBePublished(option.triggeredNews);
+            _newsCreator.SetNewsToBePublished(option.triggeredNews);
         }
 
         Destroy(eventContainer);
@@ -106,16 +118,16 @@ public class EventManager : MonoBehaviour
         switch (effect.affected)
         {
             case OptionEffect.Military:
-                GameManager.Instance.myCountry.armyPower += effect.amountOfEffect;
+                _countryManager.myCountry.armyPower += effect.amountOfEffect;
                 break;
             case OptionEffect.Economy:
-                GameManager.Instance.myCountry.economyData.GeneralEconomy += effect.amountOfEffect;
+                _countryManager.myCountry.economyData.GeneralEconomy += effect.amountOfEffect;
                 break;
             case OptionEffect.Vote:
-                GameManager.Instance.myCountry.peopleSupport += effect.amountOfEffect;
+                _countryManager.myCountry.peopleSupport += effect.amountOfEffect;
                 break;
             case OptionEffect.Welfare:
-                GameManager.Instance.myCountry.welfareLevel += effect.amountOfEffect;
+                _countryManager.myCountry.welfareLevel += effect.amountOfEffect;
                 break;
         }
     }

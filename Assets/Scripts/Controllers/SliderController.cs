@@ -2,12 +2,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class SliderController : MonoSingleton<SliderController>
+public class SliderController : MonoBehaviour
 {
     private Slider _economySlider;
     private Slider _militarySlider;
     private Slider _voteSlider;
     private Slider _welfareSlider;
+    
+    private CountryManager _countryManager;
+    [Inject]
+    public SliderController(CountryManager countryManager)
+    {
+        this._countryManager = countryManager;
+        _countryManager.CountryManagerStateChanged();
+    }
 
     [Inject]
     private void Construct(
@@ -31,10 +39,10 @@ public class SliderController : MonoSingleton<SliderController>
     {
         if (_voteSlider != null && _militarySlider != null && _economySlider != null && _welfareSlider != null)
         {
-            _voteSlider.value = GameManager.Instance.myCountry.peopleSupport;
-            _militarySlider.value = GameManager.Instance.myCountry.armyPower;
-            _economySlider.value = GameManager.Instance.myCountry.economy;
-            _welfareSlider.value = GameManager.Instance.myCountry.welfareLevel;
+            _voteSlider.value = _countryManager.myCountry.peopleSupport;
+            _militarySlider.value = _countryManager.myCountry.armyPower;
+            _economySlider.value = _countryManager.myCountry.economy;
+            _welfareSlider.value = _countryManager.myCountry.welfareLevel;
         }
     }
 }

@@ -8,6 +8,15 @@ public class RelationsController : MonoBehaviour
 {
     private RelationsPanelController _relationsPanelController;
     
+    private CountryManager _countryManager;
+    [Inject]
+    public RelationsController(CountryManager countryManager)
+    {
+        this._countryManager = countryManager;
+        _countryManager.CountryManagerStateChanged();
+    
+    }
+    
     [Inject]
     private void InjectRelationsPanelController(RelationsPanelController relationsPanelController)
     {
@@ -16,9 +25,9 @@ public class RelationsController : MonoBehaviour
     
     public void GetOurRelations()
     {
-        foreach (var country in GameManager.Instance.otherCountries)
+        foreach (var country in _countryManager.otherCountries)
         {
-            var relationshipLevel =country.GetRelationship(GameManager.Instance.myCountry.countryName);
+            var relationshipLevel =country.GetRelationship(_countryManager.myCountry.countryName);
             
             var countryName =country.name;
             var countryFlag = country.countryFlag;

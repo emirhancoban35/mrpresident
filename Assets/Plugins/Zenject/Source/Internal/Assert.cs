@@ -343,8 +343,7 @@ namespace ModestTree
             if (!condition)
             {
                 throw CreateException("Assert hit! " + message.Fmt(p1));
-            }
-        }
+            } }
 
         // We don't use params here to avoid the memory alloc
 #if ZEN_STRIP_ASSERTS_IN_BUILDS

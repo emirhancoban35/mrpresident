@@ -2,7 +2,7 @@ using Interfaces;
 using UnityEngine;
 using Zenject;
 
-public class NewsPanelController : MonoSingleton<NewsPanelController>, IPanelController
+public class NewsPanelController : MonoBehaviour, IPanelController
 {
     private RectTransform _newsPanel;
     private RectTransform _panel;

@@ -2,22 +2,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Zenject;
+
 public class ButtonController : MonoBehaviour
 {
-    [SerializeField] private Image image;   
+    [SerializeField] private Image image;
     
     private CountryData _country;
-
-    private GameManager _gameManager;
-    
-    [Inject]
-    public void Setup(GameManager GameManager)
-    {
-        this._gameManager = GameManager;
-        _gameManager.GameManagerStateChanged();
-
-    }
-
+    [Inject] private CountryManager _countryManager;
     public void Populate(CountryData country)
     {
         _country = country;
@@ -26,7 +17,7 @@ public class ButtonController : MonoBehaviour
     
     public void OnClick()
     {
-        SceneManager.LoadScene(sceneBuildIndex: +1, LoadSceneMode.Single);
-        _gameManager.SelectElement(_country);
+        _countryManager.SelectCountry(_country); 
+        SceneManager.LoadScene("Game", LoadSceneMode.Additive);
     }
 }
